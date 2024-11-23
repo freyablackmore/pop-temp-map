@@ -1,5 +1,4 @@
 # Freya Blackmore Data Task 
-# Pre-Doc in Environmental Economics, Salata Institute
 # November 14th, 2024
 
 # -----------------------------------------------------------
@@ -14,8 +13,8 @@ library(tidyr)
 
 # Loading in data sets ####
 
-geospatial_data <- read_csv("Documents/R/Salata_technical_screen/country_geospatial.csv")
-daily_avg_temp <- read_csv("Documents/R/Salata_technical_screen/country_dailyavg_ERA5_tavg_2015.csv")
+geospatial_data <- read_csv("country_geospatial.csv")
+daily_avg_temp <- read_csv("country_dailyavg_ERA5_tavg_2015.csv")
 
 
 # -------------- Data Table Manipulation ------------------- ####
