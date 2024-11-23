@@ -13,8 +13,8 @@ library(tidyr)
 
 # Loading in data sets ####
 # set working directory to project
-geospatial_data <- read_csv("country_geospatial.csv")
-daily_avg_temp <- read_csv("country_dailyavg_ERA5_tavg_2015.csv")
+geospatial_data <- read_csv("input/country_geospatial.csv")
+daily_avg_temp <- read_csv("input/country_dailyavg_ERA5_tavg_2015.csv")
 
 
 # -------------- Data Table Manipulation ------------------- ####
@@ -220,7 +220,7 @@ map <- ggplot(world_monthly_avg_temps) +
 
 # setting the parameters of the desired animation
 animate(map, nframes = 12, duration = 10, width = 800, height = 600, 
-        renderer = gifski_renderer("animation.gif"))
+        renderer = gifski_renderer("output/animation.gif"))
   
 
 # ---------------- Tree Map Data -------------------
