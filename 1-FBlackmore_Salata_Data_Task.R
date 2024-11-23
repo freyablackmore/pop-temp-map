@@ -12,7 +12,7 @@ library(readr)
 library(tidyr)
 
 # Loading in data sets ####
-
+# set working directory to project
 geospatial_data <- read_csv("country_geospatial.csv")
 daily_avg_temp <- read_csv("country_dailyavg_ERA5_tavg_2015.csv")
 
@@ -108,8 +108,8 @@ northern_hemisphere <- weighted_regional_daily_averages %>%
                values_to = "temperature")
 
 # Calculating the mean and variance for Northern Hemisphere weighted data
-northern_mean <- ddply(northern_hemisphere, "weighting", summarise, temperature.mean=mean(temperature))
-northern_variance <- ddply(northern_hemisphere, "weighting", summarise, temperature.variance = var(temperature))
+northern_mean <- plyr::ddply(northern_hemisphere, "weighting", summarise, temperature.mean=mean(temperature))
+northern_variance <- plyr::ddply(northern_hemisphere, "weighting", summarise, temperature.variance = var(temperature))
 
 # Creating distribution plot
 ggplot(northern_hemisphere, aes(x = temperature, colour = weighting)) + 
@@ -132,8 +132,8 @@ southern_hemisphere <- weighted_regional_daily_averages %>%
                values_to = "temperature")
 
 # Calculating the mean and variance for Southern Hemisphere weighted data
-southern_mean <- ddply(southern_hemisphere, "weighting", summarise, temperature.mean=mean(temperature))
-southern_variance <- ddply(southern_hemisphere, "weighting", summarise, temperature.variance = var(temperature))
+southern_mean <- plyr::ddply(southern_hemisphere, "weighting", summarise, temperature.mean=mean(temperature))
+southern_variance <- plyr::ddply(southern_hemisphere, "weighting", summarise, temperature.variance = var(temperature))
 
 
 # Creating distribution plot
@@ -156,8 +156,8 @@ tropics <- weighted_regional_daily_averages %>%
                values_to = "temperature")
 
 # Calculating the mean and variance for Tropics weighted data
-tropics_mean <- ddply(tropics, "weighting", summarise, temperature.mean=mean(temperature))
-tropics_variance <- ddply(tropics, "weighting", summarise, temperature.variance = var(temperature))
+tropics_mean <- plyr::ddply(tropics, "weighting", summarise, temperature.mean=mean(temperature))
+tropics_variance <- plyr::ddply(tropics, "weighting", summarise, temperature.variance = var(temperature))
 
 
 # Creating distribution plot
